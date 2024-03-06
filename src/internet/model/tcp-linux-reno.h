@@ -59,6 +59,8 @@ class TcpLinuxReno : public TcpCongestionOps
 
     void IncreaseWindow(Ptr<TcpSocketState> tcb, uint32_t segmentsAcked) override;
     uint32_t GetSsThresh(Ptr<const TcpSocketState> tcb, uint32_t bytesInFlight) override;
+    void EnterCwr(uint32_t currentDelivered) override;
+    
     Ptr<TcpCongestionOps> Fork() override;
 
   protected:
